@@ -20,7 +20,7 @@ public class BookMapperImpl implements BookMapper {
         bookDTO.setId(book.getId());
         bookDTO.setName(book.getName());
         bookDTO.setPrice(book.getPrice());
-        bookDTO.setAuthors(authorMapper.toDto(book.getAuthors()));
+        bookDTO.setAuthors((List<AuthorDTO>) authorMapper.toDto((Author) book.getAuthors()));
         return bookDTO;
     }
 
@@ -30,7 +30,7 @@ public class BookMapperImpl implements BookMapper {
         book.setId(bookDTO.getId());
         book.setName(bookDTO.getName());
         book.setPrice(bookDTO.getPrice());
-        book.setAuthors(authorMapper.fromDto(bookDTO.getAuthors()));
+        book.setAuthors((Set<Author>) authorMapper.fromDto(bookDTO.getAuthors()));
         return book;
     }
 

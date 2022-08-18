@@ -23,7 +23,6 @@ public class Operation {
     @ManyToOne
         @JoinColumn(name = "book_id")
     Book book;
-
     @Enumerated(value = EnumType.STRING)
     OperationStatus status;
 }
